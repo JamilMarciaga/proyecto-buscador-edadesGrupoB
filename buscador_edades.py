@@ -13,7 +13,22 @@ edades_integrantes = {
     "Alexis": 23,
     "Esequiel": 24
 }
+# ==========================
+# PARTE DE ESEQUIEL
+# Estadísticas del grupo
+# ==========================
 
+cantidad_integrantes = len(edades_integrantes)
+promedio_edades = sum(edades_integrantes.values()) / cantidad_integrantes
+
+integrante_mayor = max(edades_integrantes, key=edades_integrantes.get)
+integrante_menor = min(edades_integrantes, key=edades_integrantes.get)
+
+print("\n=== ESTADÍSTICAS DEL GRUPO ===")
+print(f"Cantidad de integrantes: {cantidad_integrantes}")
+print(f"Promedio de edades: {promedio_edades:.2f}")
+print(f"Mayor edad: {integrante_mayor} ({edades_integrantes[integrante_mayor]} años)")
+print(f"Menor edad: {integrante_menor} ({edades_integrantes[integrante_menor]} años)")
 # Mostrar integrantes disponibles
 print("=== BUSCADOR DE EDADES - GRUPO B ===")
 print("Integrantes disponibles:")
