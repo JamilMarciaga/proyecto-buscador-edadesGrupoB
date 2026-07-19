@@ -3,15 +3,16 @@ Programa buscador de edades - Grupo B
 Integrantes: Jamil Marciaga, Gilberto Cano, Alexis Lopez, Esequiel Gonzalez
 """
 
-# Lista con los 4 nombres del grupo
-nombres_integrantes = ["Jamil", "Gilberto", "Alexis", "Esequiel"]
+# Lista con los nombres del grupo
+nombres_integrantes = ["Jamil", "Gilberto", "Alexis", "Esequiel", "Ana"]
 
 # Diccionario con edades
 edades_integrantes = {
     "Jamil": 25,
     "Gilberto": 22,
     "Alexis": 23,
-    "Esequiel": 24
+    "Esequiel": 24,
+    "Ana": 30
 }
 # ==========================
 # PARTE DE ESEQUIEL
@@ -35,13 +36,24 @@ print("Integrantes disponibles:")
 for nombre in nombres_integrantes:
     print(f"  - {nombre}")
 
-# Solicitar nombre al usuario
-nombre_buscado = input("\nIngresa el nombre de un integrante: ")
+# Solicitar un nombre válido
+while True:
+    nombre_buscado = input("\nIngresa el nombre de un integrante: ").strip()
+    if nombre_buscado:
+        break
+    print("El nombre no puede estar vacío. Inténtalo de nuevo.")
+
+# Buscar el nombre sin distinguir mayúsculas y minúsculas
+nombre_encontrado = None
+for nombre in nombres_integrantes:
+    if nombre.casefold() == nombre_buscado.casefold():
+        nombre_encontrado = nombre
+        break
 
 # Buscar la edad
-if nombre_buscado in edades_integrantes:
-    edad_encontrada = edades_integrantes[nombre_buscado]
-    print(f"\n✅ {nombre_buscado} tiene {edad_encontrada} años.")
+if nombre_encontrado:
+    edad_encontrada = edades_integrantes[nombre_encontrado]
+    print(f"\nHola, {nombre_encontrado}. Tu edad registrada es {edad_encontrada} años.")
     
     # Dividir la edad entre 4
     edad_dividida = edad_encontrada / 4
@@ -49,9 +61,10 @@ if nombre_buscado in edades_integrantes:
     
     # Cambiar la edad a otro compañero
     for otro_nombre in nombres_integrantes:
-        if otro_nombre != nombre_buscado:
+        if otro_nombre != nombre_encontrado:
             edades_integrantes[otro_nombre] -= 1
             print(f"   🔄 Se restó 1 año a {otro_nombre}. Ahora tiene {edades_integrantes[otro_nombre]} años.")
             break
 else:
-    print(f"\n❌ La persona '{nombre_buscado}' no fue encontrada en el grupo.")
+    print(f"\nLo sentimos, '{nombre_buscado}' no fue encontrado en el grupo.")
+    print("Nombres disponibles:", ", ".join(nombres_integrantes))
