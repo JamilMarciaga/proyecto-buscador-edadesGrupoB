@@ -4,7 +4,7 @@ Integrantes: Jamil Marciaga, Gilberto Cano, Alexis Lopez, Esequiel Gonzalez
 """
 
 # Lista con los nombres del grupo
-nombres_integrantes = ["Jamil", "Gilberto", "Alexis", "Esequiel", "Ana"]
+nombres_integrantes = ["Jamil", "Gilberto", "Alexis", "Esequiel", "Ana", "Carlos"]
 
 # Diccionario con edades
 edades_integrantes = {
@@ -12,7 +12,8 @@ edades_integrantes = {
     "Gilberto": 22,
     "Alexis": 23,
     "Esequiel": 24,
-    "Ana": 30
+    "Ana": 30,
+    "Carlos"
 }
 # ==========================
 # PARTE DE ESEQUIEL
@@ -65,6 +66,18 @@ if nombre_encontrado:
             edades_integrantes[otro_nombre] -= 1
             print(f"   🔄 Se restó 1 año a {otro_nombre}. Ahora tiene {edades_integrantes[otro_nombre]} años.")
             break
+
+# ==========================
+# PARTE DE GILBERTO
+# ==========================
+
+if nombre_encontrado:
+    print("\n--- Cambio especial de Gilberto ---")
+
+    # Calcular el doble de la edad
+    doble_edad = edades_integrantes[nombre_encontrado] * 2
+    print(f"El doble de la edad de {nombre_encontrado} es: {doble_edad} años.")
+    
 else:
     print(f"\nLo sentimos, '{nombre_buscado}' no fue encontrado en el grupo.")
     print("Nombres disponibles:", ", ".join(nombres_integrantes))
